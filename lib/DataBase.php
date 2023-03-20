@@ -4,6 +4,7 @@ class DataBase{
   public $pdo;
   public function __construct ($dataBaseUser, $dataBaseName){
     $this->pdo = null;
+    $dsn = 'mysql:host=webdb.uvm.edu;dbname=' . $dataBaseName;
   }
 }
 ?>
