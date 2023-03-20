@@ -1,4 +1,5 @@
 <?php 
+import passwords.php;
 class DataBase{
   const DB_DEBUG = false;
   public $pdo;
@@ -6,16 +7,15 @@ class DataBase{
     $this->pdo = null;
     $dsn = 'mysql:host=webdb.uvm.edu;dbname=' . $dataBaseName;
     $DataBasePassword= '';
-    switch (n) {
-  case netid_reader:
-    $DataBasePassword=;
+    $end = substr($dataBaseUser, -6, 1);
+    switch ($end) {
+  case 'r':
+    $DataBasePassword= $reader;
     break;
-  case netid_writer:
-    code to be executed if n=label2;
+  case 'w':
+    $DataBasePassword= $writer;
     break;
-  default:
-    code to be executed if n is different from all labels;
-}
+    }
   }
 }
 ?>
