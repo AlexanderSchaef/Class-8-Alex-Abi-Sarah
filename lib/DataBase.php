@@ -6,19 +6,19 @@ class DataBase{
   public function __construct ($dataBaseUser, $dataBaseName){
     $this->pdo = null;
     $dsn = 'mysql:host=webdb.uvm.edu;dbname=' . $dataBaseName;
-    $DataBasePassword= '';
+    $dataBasePassword= '';
     $end = substr($dataBaseUser, -6, 1);
     switch ($end) {
   case 'r':
-    $DataBasePassword= $reader;
+    $dataBasePassword= $reader;
     break;
   case 'w':
-    $DataBasePassword= $writer;
+    $dataBasePassword= $writer;
     break;
     }
     
     try{
-      $this->pdo = new PDO($dataBaseName, $dataBaseUser, $DataBasePassword);
+      $this->pdo = new PDO($dataBaseName, $dataBaseUser, $dataBasePassword);
       
       if(!$this->pdo){
         if(self::DB_DEBUG){
