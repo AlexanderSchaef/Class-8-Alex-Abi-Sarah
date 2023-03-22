@@ -39,5 +39,16 @@ class DataBase{
     
     return $this->pdo;
   }
+    public function select($query, $values = ''){
+     $statement = pdo->prepare($sql);
+     if(is_array($values)){
+     $data = array($fieldValue);
+     } else {
+     $statement->execute();
+     }
+     $recordSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+     $statement->closeCursor();
+     return $recordSet;
+    }
 }
 ?>
