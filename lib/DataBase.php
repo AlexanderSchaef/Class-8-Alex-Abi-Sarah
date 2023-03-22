@@ -18,7 +18,7 @@ class DataBase{
     }
     
     try{
-      $this->pdo = new PDO($dataBaseName, $dataBaseUser, $dataBasePassword);
+      $this->pdo = new PDO($dsn, $dataBaseUser, $dataBasePassword);
       
       if(!$this->pdo){
         if(self::DB_DEBUG){
