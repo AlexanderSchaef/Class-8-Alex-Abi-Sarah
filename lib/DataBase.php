@@ -40,9 +40,9 @@ class DataBase{
     return $this->pdo;
   }
     public function select($query, $values = ''){
-     $statement = $pdo->prepare($sql);
+     $statement = $this->pdo->prepare($query);
      if(is_array($values)){
-     $data = array($fieldValue);
+     $statement->execute($values);
      } else {
      $statement->execute();
      }
