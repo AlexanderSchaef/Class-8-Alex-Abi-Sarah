@@ -16,6 +16,28 @@ class DataBase{
     $DataBasePassword= $writer;
     break;
     }
+    
+    try{
+      $this->pdo = new PDO($dataBaseName, $dataBaseUser, $DataBasePassword);
+      
+      if(!$this->pdo){
+        if(self::DB_DEBUG){
+          print PHP_EOL . '<!-- NOT Connected -->' . PHP_EOL;
+        }
+        $this->pdo = 0;
+      } else {
+         if (self::DB_DEBUG){
+           print PHP_EOL . '<!-- Connected -->' . PHP_EOL;
+         }
+      }
+    } catch (PDOException $e) {
+      $error_message = $e->getMessage();
+      if (self:: DB_DEBUG){
+        print '<!-- Error connecting : ' . $error_message . '-->' . PHP_EOL;
+      }
+    }
+    
+    return $this->pdo;
   }
 }
 ?>
