@@ -1,5 +1,4 @@
 <?php 
-import passwords.php;
 class DataBase{
   const DB_DEBUG = false;
   public $pdo;
@@ -8,6 +7,7 @@ class DataBase{
     $dsn = 'mysql:host=webdb.uvm.edu;dbname=' . $dataBaseName;
     $dataBasePassword = '';
     $end = substr($dataBaseUser, -6, 1);
+    include 'passwords.php';
     switch ($end) {
   case 'r':
     $dataBasePassword = $reader;
